@@ -1,13 +1,60 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entri BI Dashboard</title>
+    <title>Entri Bi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #333;
+            color: white;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        iframe {
+            width: 100%;
+            height: 80vh;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>Entri BI</h1>
-    <!-- Alteração para forçar deploy -->
-    <iframe width="800" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiODE2MWY5NWMtMzgwMS00MWQ3LWFmMzMtMjJmYzQ3ZDkxNGFmIiwidCI6IjYxODE1Mjg2LWFjN2QtNDYyZi04NWZhLWVmZTFmMDRjNWI5YiJ9" frameborder="0" allowFullScreen="true"></iframe>
+
+    <div class="sidebar">
+        <a href="#" onclick="showDashboard('https://app.powerbi.com/view?r=eyJrIjoiODE2MWY5NWMtMzgwMS00MWQ3LWFmMzMtMjJmYzQ3ZDkxNGFmIiwidCI6IjYxODE1Mjg2LWFjN2QtNDYyZi04NWZhLWVmZTFmMDRjNWI5YiJ9')">Dashboard 1</a>
+        <a href="#" onclick="showDashboard('https://app.powerbi.com/view?r=eyJrIjoiYjViYmFiOGItOTg4MS00YzExLTg0MzYtYzRlNDk2YzFlOTU2IiwidCI6IjYxODE1Mjg2LWFjN2QtNDYyZi04NWZhLWVmZTFmMDRjNWI5YiJ9')">Dashboard 2</a>
+        <!-- Adicione mais links conforme necessário -->
+    </div>
+
+    <div class="content">
+        <h1>BI Entri</h1>
+        <iframe id="dashboardFrame" src=""></iframe>
+    </div>
+
+    <script>
+        function showDashboard(url) {
+            document.getElementById('dashboardFrame').src = url;
+        }
+    </script>
+
 </body>
 </html>
