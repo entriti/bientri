@@ -10,6 +10,7 @@
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
             height: 100vh;
             background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
             color: #fff;
@@ -21,6 +22,7 @@
             color: white;
             padding-top: 20px;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
         }
         .sidebar a {
             padding: 15px;
@@ -34,12 +36,14 @@
             color: #1e272e;
         }
         .content {
+            margin-left: 250px;
             flex-grow: 1;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            overflow-y: auto;
         }
         .content h1 {
             margin: 0 0 20px;
@@ -52,6 +56,17 @@
             height: 80vh;
             border: none;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        /* Rodapé */
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1e272e;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 0.8em;
         }
         /* CSS para esconder barras de ferramentas padrão */
         iframe::-webkit-scrollbar {
@@ -69,6 +84,10 @@
     <div class="content">
         <h1>BI Entri</h1>
         <iframe id="dashboardFrame" src=""></iframe>
+    </div>
+
+    <div class="footer">
+        Desenvolvido pela Equipe de TI da Entri Tecnologia
     </div>
 
     <script>
