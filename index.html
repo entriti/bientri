@@ -14,6 +14,7 @@
             height: 100vh;
             background: #001f3f; /* Azul escuro */
             color: #fff;
+            overflow: hidden; /* Para evitar barra de rolagem */
         }
         .login-container, .content {
             display: flex;
@@ -60,7 +61,11 @@
             padding-top: 20px;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
             position: fixed;
-            display: none;
+            left: -250px;
+            transition: left 0.3s;
+        }
+        .sidebar:hover {
+            left: 0;
         }
         .sidebar a {
             padding: 15px;
@@ -74,13 +79,16 @@
             color: #1e272e;
         }
         .content {
-            margin-left: 250px;
             flex-grow: 1;
             padding: 20px;
             display: none;
             align-items: center;
             justify-content: center;
             overflow-y: auto;
+            transition: margin-left 0.3s;
+        }
+        .content.show-sidebar {
+            margin-left: 250px;
         }
         .content h1 {
             margin: 0 0 20px;
@@ -94,7 +102,7 @@
             margin-bottom: 20px;
         }
         iframe {
-            width: calc(100% - 300px);
+            width: calc(100% - 20px); /* Ajuste a largura do iframe */
             height: 80vh;
             border: none;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
