@@ -83,7 +83,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            overflow-y: auto;
+            overflow: hidden; /* Para ocultar a barra de rolagem */
             background-color: #001f3f; /* Azul escuro */
             height: 100vh; /* Para ocupar toda a altura da tela */
         }
@@ -99,7 +99,7 @@
             margin-bottom: 20px;
         }
         iframe {
-            width: calc(100% - 20px); /* Ajuste a largura do iframe */
+            width: 100%;
             height: 80vh;
             border: none;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -136,7 +136,7 @@
     <div class="content" id="content">
         <h1>BI Entri</h1>
         <div class="loading" id="loadingMessage">Carregando...</div>
-        <iframe id="dashboardFrame" src=""></iframe>
+        <iframe id="dashboardFrame" src="" onerror="handleError()"></iframe>
     </div>
 
     <div class="footer">
@@ -166,6 +166,10 @@
             iframe.onload = function() {
                 loadingMessage.style.display = 'none';
             }
+        }
+
+        function handleError() {
+            document.getElementById('loadingMessage').innerText = 'Erro ao carregar o conteúdo.';
         }
     </script>
 </body>
