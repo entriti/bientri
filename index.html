@@ -85,7 +85,7 @@
             justify-content: center;
             overflow: hidden; /* Para ocultar a barra de rolagem */
             background-color: #001f3f; /* Azul escuro */
-            height: 100vh; /* Para ocupar toda a altura da tela */
+            height: calc(100vh - 40px); /* Ajusta a altura para não sobrepor o rodapé */
         }
         .content h1 {
             margin: 0;
@@ -103,6 +103,10 @@
             height: 80vh;
             border: none;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: none; /* Inicialmente oculto */
+        }
+        iframe.show {
+            display: block; /* Mostrar iframe quando carregado */
         }
         .footer {
             text-align: center;
@@ -136,7 +140,7 @@
     <div class="content" id="content">
         <h1>BI Entri</h1>
         <div class="loading" id="loadingMessage">Carregando...</div>
-        <iframe id="dashboardFrame" src="" onerror="handleError()"></iframe>
+        <iframe id="dashboardFrame" src="" onload="onIframeLoad()" onerror="handleError()"></iframe>
     </div>
 
     <div class="footer">
@@ -163,9 +167,14 @@
             const loadingMessage = document.getElementById('loadingMessage');
             loadingMessage.style.display = 'block';
             iframe.src = url;
-            iframe.onload = function() {
-                loadingMessage.style.display = 'none';
-            }
+            iframe.classList.remove('show'); // Inicialmente oculto
+        }
+
+        function onIframeLoad() {
+            const iframe = document.getElementById('dashboardFrame');
+            const loadingMessage = document.getElementById('loadingMessage');
+            loadingMessage.style.display = 'none';
+            iframe.classList.add('show'); // Mostrar iframe quando carregado
         }
 
         function handleError() {
