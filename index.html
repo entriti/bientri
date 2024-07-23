@@ -16,26 +16,22 @@
             color: #fff;
             overflow: hidden; /* Para evitar barra de rolagem */
         }
-        .login-container, .content {
+        .login-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             width: 100%;
+            position: relative; /* Adicionado para evitar corte */
         }
-        .login-container {
-            background-color: #1e272e;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-        .login-container h1, .content h1 {
-            margin-bottom: 20px;
+        .login-container h1 {
             color: #f39c12;
+            margin-bottom: 20px;
         }
         .login-container input {
-            width: 100%;
+            width: 80%;
+            max-width: 300px; /* Largura máxima ajustada */
             padding: 10px;
             margin: 10px 0;
             border: none;
@@ -79,6 +75,7 @@
             color: #1e272e;
         }
         .content {
+            margin-left: 250px;
             flex-grow: 1;
             padding: 20px;
             display: none;
