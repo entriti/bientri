@@ -24,12 +24,10 @@
             width: 100%;
         }
         .login-container {
-            position: absolute;
             background-color: #1e272e;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            display: none;
         }
         .login-container h1, .content h1 {
             margin-bottom: 20px;
@@ -146,7 +144,7 @@
             if (pin === correctPIN) {
                 document.getElementById('loginContainer').style.display = 'none';
                 document.getElementById('sidebar').style.display = 'block';
-                document.getElementById('content').style.display = 'flex';
+                document.getElementById('content').style.display = 'block';
                 showDashboard('https://app.powerbi.com/view?r=eyJrIjoiODE2MWY5NWMtMzgwMS00MWQ3LWFmMzMtMjJmYzQ3ZDkxNGFmIiwidCI6IjYxODE1Mjg2LWFjN2QtNDYyZi04NWZhLWVmZTFmMDRjNWI5YiJ9');
             } else {
                 document.getElementById('error-message').style.display = 'block';
