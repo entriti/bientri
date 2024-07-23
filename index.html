@@ -23,7 +23,7 @@
             justify-content: center;
             height: 100vh;
             width: 100%;
-            position: relative; /* Adicionado para evitar corte */
+            position: relative;
         }
         .login-container h1 {
             color: #f39c12;
@@ -57,11 +57,12 @@
             padding-top: 20px;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
             position: fixed;
-            left: -250px;
+            left: -250px; /* Inicialmente fora da tela */
+            top: 0;
             transition: left 0.3s;
         }
-        .sidebar:hover {
-            left: 0;
+        .sidebar.show {
+            left: 0; /* Mostrar a sidebar */
         }
         .sidebar a {
             padding: 15px;
@@ -82,7 +83,6 @@
             align-items: center;
             justify-content: center;
             overflow-y: auto;
-            transition: margin-left 0.3s;
         }
         .content.show-sidebar {
             margin-left: 250px;
@@ -150,7 +150,7 @@
 
             if (pin === correctPIN) {
                 document.getElementById('loginContainer').style.display = 'none';
-                document.getElementById('sidebar').style.display = 'block';
+                document.getElementById('sidebar').classList.add('show');
                 document.getElementById('content').style.display = 'flex';
                 showDashboard('https://app.powerbi.com/view?r=eyJrIjoiODE2MWY5NWMtMzgwMS00MWQ3LWFmMzMtMjJmYzQ3ZDkxNGFmIiwidCI6IjYxODE1Mjg2LWFjN2QtNDYyZi04NWZhLWVmZTFmMDRjNWI5YiJ9');
             } else {
